@@ -32,9 +32,14 @@ class calendar implements calendarInterface
         $this->calculate_day_range();
     }
 
-
+    /**
+     * Calculates the beginning and end of days in terms of
+     * seconds
+     * @throws Exception
+     */
     public function calculate_day_range()
     {
+        sort($this->calendar_entries);
         if(!isset($this->calendar_entries[0])) {
             throw new Exception("There are no calendar entries");
         }
@@ -50,8 +55,11 @@ class calendar implements calendarInterface
 
     }
 
-
-
+    /**
+     * Validate start time
+     * @param $start_time
+     * @return bool
+     */
     private function is_valid_start_time($start_time)
     {
         $ret_val = true;
@@ -62,6 +70,11 @@ class calendar implements calendarInterface
         return $ret_val;
     }
 
+    /**
+     * Validate end time
+     * @param $end_time
+     * @return bool
+     */
     private function is_valid_end_time($end_time)
     {
         $ret_val = true;
@@ -72,7 +85,13 @@ class calendar implements calendarInterface
         return $ret_val;
     }
 
-    protected function prep_interval($interval)
+    /**
+     * Wrapper method for validation of time intervals
+     * @param $interval
+     * @return array
+     * @throws Exception
+     */
+    protected function validate_interval($interval)
     {
         $interval = preg_replace('/\s+/', ' ', $interval);
         $interval_parts = explode(" ", $interval);

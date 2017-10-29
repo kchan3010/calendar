@@ -14,9 +14,4 @@ interface calendarInterface
 
     public function calculate_day_range();
 
-//    public function build_ranges();
-//
-//    public function build_output();
-
-
 }

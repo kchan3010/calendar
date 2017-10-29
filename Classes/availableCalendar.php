@@ -37,7 +37,7 @@ class availableCalendar extends calendar
 
         foreach($this->calendar_entries as $key => $interval) {
             try{
-                list($start_time, $end_time) = $this->prep_interval($interval);
+                list($start_time, $end_time) = $this->validate_interval($interval);
 
             } catch(Exception $e) {
                 //can do some logging
@@ -75,7 +75,6 @@ class availableCalendar extends calendar
         if(!count($this->ranges)) {
             return [];
         }
-
 
         foreach ($this->ranges as $key => $interval) {
             $start_time              = $interval[0];
