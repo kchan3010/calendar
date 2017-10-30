@@ -14,8 +14,15 @@ if (count($argv) == 0) {
 }
 $entries = explode("\n", file_get_contents($argv[0], "r"));
 
-$calendar = new availableCalendar($entries);
+try{
+    $calendar = new availableCalendar($entries);
 
-$response = $calendar->get_available();
+    $response = $calendar->get_available();
 
-print_r($response);
+    print_r($response);
+
+} catch (Exception $e) {
+    //can do some logging
+
+    echo $e->getMessage();
+}

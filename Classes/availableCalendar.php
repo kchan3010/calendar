@@ -108,7 +108,7 @@ class availableCalendar extends calendar
      */
     private function format_time($time)
     {
-        return date("Y-m-d\TH:i:s\Z", $time);
+        return date("Y-m-d\TH:i\Z", $time);
     }
 
     /**

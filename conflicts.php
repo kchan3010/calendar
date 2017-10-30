@@ -14,8 +14,13 @@ if (count($argv) == 0) {
 }
 $entries = explode("\n", file_get_contents($argv[0], "r"));
 
-$calendar = new conflictCalendar($entries);
+try{
+    $calendar = new conflictCalendar($entries);
 
-$response = $calendar->get_conflicts();
+    $response = $calendar->get_conflicts();
 
-print_r($response);
+    print_r($response);
+} catch (Exception $e) {
+    //can do some logging
+    echo $e->getMessage();
+}
