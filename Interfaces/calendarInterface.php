@@ -14,4 +14,6 @@ interface calendarInterface
 
     public function calculate_day_range();
 
+    public function validate_interval($interval);
+
 }

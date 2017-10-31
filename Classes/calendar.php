@@ -91,7 +91,7 @@ class calendar implements calendarInterface
      * @return array
      * @throws Exception
      */
-    protected function validate_interval($interval)
+    public function validate_interval($interval)
     {
         $interval = preg_replace('/\s+/', ' ', $interval);
         $interval_parts = explode(" ", $interval);
