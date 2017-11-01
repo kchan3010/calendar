@@ -55,35 +55,6 @@ class calendar implements calendarInterface
 
     }
 
-    /**
-     * Validate start time
-     * @param $start_time
-     * @return bool
-     */
-    private function is_valid_start_time($start_time)
-    {
-        $ret_val = true;
-        if($start_time < $this->start_of_day || $start_time > $this->end_of_day) {
-            $ret_val = false;
-        }
-
-        return $ret_val;
-    }
-
-    /**
-     * Validate end time
-     * @param $end_time
-     * @return bool
-     */
-    private function is_valid_end_time($end_time)
-    {
-        $ret_val = true;
-        if($end_time > $this->end_of_day) {
-            $ret_val = false;
-        }
-
-        return $ret_val;
-    }
 
     /**
      * Wrapper method for validation of time intervals
@@ -115,5 +86,36 @@ class calendar implements calendarInterface
         return [$start_time, $end_time];
 
     }
+
+    /**
+     * Validate start time
+     * @param $start_time
+     * @return bool
+     */
+    private function is_valid_start_time($start_time)
+    {
+        $ret_val = true;
+        if($start_time < $this->start_of_day || $start_time > $this->end_of_day) {
+            $ret_val = false;
+        }
+
+        return $ret_val;
+    }
+
+    /**
+     * Validate end time
+     * @param $end_time
+     * @return bool
+     */
+    private function is_valid_end_time($end_time)
+    {
+        $ret_val = true;
+        if($end_time > $this->end_of_day) {
+            $ret_val = false;
+        }
+
+        return $ret_val;
+    }
+
 
 }
